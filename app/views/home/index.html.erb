@@ -1,2 +1,11 @@
 <h1>Welcome</h1>
 <p>This is a basic chat app</p>
+<%= form_for Room.new do |f| %>
+  <%= f.text_field :name, placeholder: "Enter room name" %>
+  <%= f.submit "Create" %>
+<% end %>
+<ul class="list-group">
+<% Room.all.each do |r| %>
+  <li class="list-group-item"><%= link_to r.name, room_path(r) %></li>
+<% end %>
+</ul>
