@@ -23,6 +23,17 @@
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
+        <li class="nav-item">
+          
+          <% if current_user %>
+            <%= link_to "Log out #{current_user}", logout_path %>
+          <% else %>
+            <%= form_tag login_path do  %>
+              <%= text_field_tag "username" %>
+              <%= submit_tag "Login" %>
+            <% end %>
+          <% end %>
+        </li>
       </ul>
       <form class="form-inline float-xs-right">
         <input class="form-control" type="text" placeholder="Search">
