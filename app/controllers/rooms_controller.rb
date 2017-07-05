@@ -9,6 +9,11 @@ class RoomsController < ApplicationController
     end
     redirect_to root_path
   end
+
+  def show
+    @room = Room.find_by_id(params[:id])
+    redirect_to room_messages_path(@room)
+  end
   private
 
   def room_create_params
